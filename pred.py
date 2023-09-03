@@ -3,7 +3,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 def load_and_prep_image(filename, img_shape=300):
-    img = tf.io.read_file(image)
+    img = tf.io.read_file(img)
 
     img = tf.image.decode_image(img, channels = 3)
 
