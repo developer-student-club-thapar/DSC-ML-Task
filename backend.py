@@ -13,7 +13,7 @@ all_classes = class_names
 app = Flask(__name__)
 
 # Load your trained ML model
-mon_model = tf.keras.models.load_model("monument-model")
+mon_model = tf.keras.models.load_model("saved-trained-model")
 
 @app.route('/', methods=['GET'])
 def index():
