@@ -17,7 +17,7 @@ device = 'cuda' if tf.test.is_gpu_available() else 'cpu'
 
 
 # Path to Kaggle Input
-path = "D:/monument-prediction/Indian-monuments/images"
+path = "C:/Users/tumul/Documents/GitHub/monument-prediction/Indian-monuments/images"
 # Walk through the directory and list number of files
 for dirpath, dirnames, filenames in os.walk(path):
   print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
