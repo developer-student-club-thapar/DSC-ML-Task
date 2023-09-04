@@ -1,6 +1,5 @@
 import os
 from flask import Flask, request, render_template, jsonify
-import joblib  # Use the appropriate library to load your ML model
 from PIL import Image
 import numpy as np
 import tensorflow as tf
