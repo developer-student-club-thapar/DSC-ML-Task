@@ -14,5 +14,4 @@ The primary goals of this project are:
 * Develop a robust machine learning model for monument prediction.
 * Achieve high accuracy in monument recognition.
 * Explore and fine-tune various deep learning architectures.
-* Investigate transfer learning techniques for improved performance.
 * Create a user-friendly interface for predicting monuments in new images.
