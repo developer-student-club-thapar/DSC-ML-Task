@@ -17,6 +17,7 @@ device = 'cuda' if len(tf.config.list_physical_devices('GPU')) else 'cpu'
 
 
 # Path to Kaggle Input
+#changed to relative path
 path = "Indian-monuments/images"
 # Walk through the directory and list number of files
 for dirpath, dirnames, filenames in os.walk(path):
