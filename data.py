@@ -13,11 +13,12 @@ from PIL import Image
 from keras.preprocessing.image import ImageDataGenerator
 
 
-device = 'cuda' if tf.test.is_gpu_available() else 'cpu'
+device = 'cuda' if len(tf.config.list_physical_devices('GPU')) else 'cpu'
 
 
 # Path to Kaggle Input
-path = "C:/Users/Tumul Ranjan/OneDrive/Documents/monument-prediction/Indian-monuments/images"
+#changed to relative path
+path = "Indian-monuments/images"
 # Walk through the directory and list number of files
 for dirpath, dirnames, filenames in os.walk(path):
   print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
