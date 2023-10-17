@@ -1,2 +1,9 @@
-protobuf==3.19.0
-tensorflow==2.8.0
+protobuf
+tensorflow
+flask
+pandas
+matplotlib
+numpy
+jsonify
+opencv-python
+keras
