@@ -3,7 +3,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 def load_and_prep_image(filename, img_shape=300):
-    img = tf.io.read_file(img)
+    img = tf.io.read_file(filename)
 
     img = tf.image.decode_image(img, channels = 3)
 
@@ -13,9 +13,9 @@ def load_and_prep_image(filename, img_shape=300):
 
     return img
 
-def pred_and_plot(model, filename, class_names):
+def pred_and_plot(model, img, class_names):
 
-    img = load_and_prep_image(filename)
+    # img = load_and_prep_image(filename)
 
     pred = model.predict(tf.expand_dims(img,axis = 0))
 
@@ -26,4 +26,5 @@ def pred_and_plot(model, filename, class_names):
 
     plt.imshow(img)
     plt.title(f"Prediction: {pred_class}")
-    plt.axis(False);  
+    plt.axis('off')
+    return pred_class
