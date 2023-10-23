@@ -1,0 +1,6 @@
+{
+    "terminal.explorerKind": "both",
+    "python.analysis.extraPaths": [
+        "C:/users/aayus/appdata/roaming/python/python311/site-packages"
+    ]
+}

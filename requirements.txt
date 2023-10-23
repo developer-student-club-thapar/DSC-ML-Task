@@ -1,2 +1,9 @@
-protobuf==3.19.0
-tensorflow==2.8.0
+protobuf
+tensorflow==2.14.0
+flask
+pillow
+numpy
+matplotlib
+keras
+pandas
+opencv-python

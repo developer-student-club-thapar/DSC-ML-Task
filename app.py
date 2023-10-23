@@ -3,9 +3,10 @@ from flask import Flask, request, render_template, jsonify
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import pred
 import matplotlib.pyplot as plt 
 from data import class_names
-import keras
+from tensorflow import keras
 
 all_classes = class_names
 
@@ -36,39 +37,41 @@ def predict():
         # Load and preprocess the image for prediction
         img = Image.open(image_path)
         # Preprocess the image (resize, normalize, etc.) as needed for your model
-        img = load_and_prep_image(image_path)
+        img = pred.load_and_prep_image(image_path)
 
         # Make a prediction
-        prediction = pred_and_plot(mon_model, img, all_classes)
-
+        prediction = pred.pred_and_plot(mon_model, img, all_classes)
+        img_array = img.numpy()
+        plt.imshow(img_array)
+        plt.show()
         return jsonify({'prediction': prediction})
     
 
-def load_and_prep_image(filename, img_shape=300):
-    img = tf.io.read_file(filename)
+# def load_and_prep_image(filename, img_shape=300):
+#     img = tf.io.read_file(filename)
 
-    img = tf.image.decode_image(img, channels = 3)
+#     img = tf.image.decode_image(img, channels = 3)
 
-    img = tf.image.resize(img, size=[img_shape, img_shape])
+#     img = tf.image.resize(img, size=[img_shape, img_shape])
 
-    img = img/255.
+#     img = img/255.
 
-    return img
+#     return img
 
-def pred_and_plot(model, img, class_names):
+# def pred_and_plot(model, img, class_names):
 
-    pred = model.predict(tf.expand_dims(img,axis = 0))
+#     pred = model.predict(tf.expand_dims(img,axis = 0))
 
-    if len(pred[0]) > 1:
-        pred_class = class_names[pred.argmax()]
-    else:
-        pred_class = class_names[int(tf.round(pred)[0][0])]
+#     if len(pred[0]) > 1:
+#         pred_class = class_names[pred.argmax()]
+#     else:
+#         pred_class = class_names[int(tf.round(pred)[0][0])]
 
-    plt.imshow(img)
-    plt.title(f"Prediction: {pred_class}")
-    plt.axis(False); 
+#     plt.imshow(img)
+#     plt.title(f"Prediction: {pred_class}")
+#     plt.axis(False); 
 
-    return pred_class
+#     return pred_class
 
 if __name__ == '__main__':
     app.run(debug=True)
